@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScrumFlow</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="logo-container">
+        <img src="static/images/logo.png" alt="ScrumFlow Logo" class="logo">
+    </div>
+
+    <h2>Add task</h2>
+    <form action="{{ url_for('add_task') }}" method="POST">
+        <label>
+            <input type="text" name="title" placeholder="Task title" required>
+        </label>
+        <label>
+            <input type="text" name="description" placeholder="Task description" required>
+        </label>
+        <input type="submit" value="Add task">
+    </form>
+
+    <h2>Add Sprint</h2>
+    <form method="POST" action="/add_sprint">
+        <label for="sprint_name">
+            Sprint Name:
+        </label>
+        <label>
+            <input type="text" name="sprint_name" required>
+        </label>
+        <br>
+        <label for="start_date">
+            Start Date:
+        </label>
+        <label>
+            <input type="date" name="start_date" required>
+        </label>
+        <br>
+        <label for="end_date">
+            End Date:
+        </label>
+        <label>
+            <input type="date" name="end_date" required>
+        </label>
+        <br>
+        <button type="submit">Add Sprint</button>
+    </form>
+
+    <hr>
+
+    <h2>Assign Task to Sprint</h2>
+    <form method="POST" action="/assign_task_to_sprint">
+
+        <label for="task_id">Choose Task:</label>
+        <select name="task_id" id="task_id">
+            {% for task in tasks %}
+                <option value="{{ task._id }}">{{ task.name }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="sprint_id">Choose Sprint:</label>
+        <select name="sprint_id" id="sprint_id">
+            {% for sprint in sprints %}
+                <option value="{{ sprint._id }}">{{ sprint.name }}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Assign to Sprint</button>
+    </form>
+
+    <hr>
+
+    <h2>Sprints</h2>
+    {% for sprint in sprints %}
+        <div class="sprint">
+            <h3>{{ sprint['sprint_name'] }}</h3>
+            <p><strong>Start Date:</strong> {{ sprint['start_date'] }}</p>
+            <p><strong>End Date:</strong> {{ sprint['end_date'] }}</p>
+
+            <h4>Tasks in this Sprint:</h4>
+            <ul>
+                {% for task in tasks %}
+                    {% if task['sprint_id'] == sprint['_id'] %}
+                        <li>{{ task['name'] }} {% if task['done'] %} (Done) {% else %} (Pending) {% endif %}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+        <hr>
+    {% endfor %}
+
+</body>
+</html>

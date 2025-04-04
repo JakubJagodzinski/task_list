@@ -1,0 +1,181 @@
+/* Globalne style */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Tło strony */
+body {
+    background-color: #f4f7fc;
+    color: #333;
+    line-height: 1.6;
+    font-size: 16px;
+    padding: 20px;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center; /* Wyśrodkowanie poziome */
+    align-items: center; /* Wyśrodkowanie pionowe */
+    height: 10vh; /* Ustawia wysokość kontenera na pełną wysokość ekranu */
+    margin: 0;
+}
+
+/* Logo */
+.logo {
+    max-width: 200px; /* Dopasuj rozmiar logo według potrzeb */
+    height: auto;
+}
+
+/* Nagłówek */
+h2 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+h3, h4 {
+    color: #34495e;
+}
+
+h1, h2, h3 {
+    font-weight: 600;
+}
+
+/* Formularze */
+form {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    font-size: 14px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+form input[type="text"],
+form input[type="date"],
+form select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+form input[type="text"]:focus,
+form input[type="date"]:focus,
+form select:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+/* Przycisk formularza */
+button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Lista sprintów i zadań */
+h4 {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #2c3e50;
+}
+
+/* Wygląd listy */
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+ul li {
+    background-color: #ecf0f1;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Oznaczenie zadań zakończonych */
+ul li.done {
+    background-color: #27ae60;
+    color: white;
+}
+
+/* Wygląd formularza przypisania zadania do sprintu */
+select {
+    width: auto;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+form > hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 20px 0;
+}
+
+/* Styl dla sekcji sprintów */
+.sprint-section {
+    margin-bottom: 40px;
+}
+
+/* Nagłówki sprintów */
+.sprint-header {
+    background-color: #3498db;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.sprint-header h3 {
+    margin: 0;
+}
+
+/* Formularz przypisania */
+.sprint-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+/* Styl dla formularza dodawania sprintu */
+form.add-sprint-form {
+    width: 50%;
+    margin: auto;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Stylizacja dla inputów i selectów w formularzach */
+.add-sprint-form input, .add-sprint-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Pływające efekty */
+button:hover {
+    background-color: #2980b9;
+}
